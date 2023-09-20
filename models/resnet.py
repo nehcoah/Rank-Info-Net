@@ -139,7 +139,6 @@ class ResNet(nn.Module):
 
         x = w * cls_x + (1 - w) * rank_x
         return x, rank_x, cls_x
-        # return cls_x
 
 
 def resnet50(**kwargs):
