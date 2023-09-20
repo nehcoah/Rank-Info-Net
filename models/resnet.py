@@ -87,13 +87,13 @@ class ResNet(nn.Module):
             nn.Linear(512 * block.expansion, 512 * block.expansion // 4),
             nn.GELU(),
             nn.Dropout(p=0.5),
-            nn.Linear(512 * block.expansion // 4, 81)
+            nn.Linear(512 * block.expansion // 4, num_classes)
         )
         self.param = nn.Sequential(
             nn.Linear(512 * block.expansion, 512 * block.expansion // 4),
             nn.GELU(),
             nn.Dropout(p=0.5),
-            nn.Linear(512 * block.expansion // 4, 81)
+            nn.Linear(512 * block.expansion // 4, num_classes)
         )
 
         for m in self.modules():
