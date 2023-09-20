@@ -21,7 +21,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_dir", type=str, required=True, help="Data root directory")
     parser.add_argument("--checkpoint", type=str, default="./checkpoint/", help="Directory to save model")
-    parser.add_argument("--load_from", type=str, required=True, help="Directory of state-of-dict")
+    parser.add_argument("--load_from", type=str, default="", help="Directory of state-of-dict")
     parser.add_argument("--param", type=list, default=[1., 1., 1., 1.], help="Hyperparameters of loss")
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--epoch", type=int, default=90)
@@ -40,9 +40,10 @@ def cross_validations(split, args):
     split_test = 'train_test_files/5_folders_cross_validations_files/cross_validation_' + str(split + 1) + '/test_' + str(split + 1) + '.txt'
 
     model = resnet50(num_classes=num_classes)
-    checkpoint = torch.load(args.load_from, map_location='cpu')
-    p = {k: v for k, v in checkpoint.items() if (k in checkpoint and 'fc' not in k)}
-    model.load_state_dict(p, strict=False)
+    if args.load_from:
+        checkpoint = torch.load(args.load_from, map_location='cpu')
+        p = {k: v for k, v in checkpoint.items() if (k in checkpoint and 'fc' not in k)}
+        model.load_state_dict(p, strict=False)
 
     model = model.to(args.device)
 
@@ -93,9 +94,10 @@ def split_64(args):
     split_test = 'train_test_files/split_of_60%training and 40%testing/test.txt'
 
     model = resnet50(num_classes=num_classes)
-    checkpoint = torch.load(args.load_from, map_location='cpu')
-    p = {k: v for k, v in checkpoint.items() if (k in checkpoint and 'fc' not in k)}
-    model.load_state_dict(p, strict=False)
+    if args.load_from:
+        checkpoint = torch.load(args.load_from, map_location='cpu')
+        p = {k: v for k, v in checkpoint.items() if (k in checkpoint and 'fc' not in k)}
+        model.load_state_dict(p, strict=False)
 
     model = model.to(args.device)
 
