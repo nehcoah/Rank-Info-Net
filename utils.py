@@ -69,7 +69,7 @@ def test_base(test_loader, model, num_classes, device):
     corr = preds_for_pd.corr(labels_for_pd, method='pearson')
 
     print(f"mae: {mae:.4f}, rmse: {rmse:.4f}, pc: {corr:.4f}")
-    return mae, rmse, corr, preds, labels
+    return mae, rmse, corr
 
 
 def get_pairs(scores: List[int]) -> List[Tuple]:
