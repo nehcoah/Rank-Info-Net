@@ -59,3 +59,8 @@ python test.py --data_dir YOUR_DATASET_DIR --load_from YOUR_WEIGHT_OF_MODEL
 
 Note that you only need to set the `load_from` parameter to be the same directory of the `checkpoint` which  is set in training phase, unless you have renamed the state-dict file or moved it to somewhere else.
 
+### Apply code to other tasks
+
+Our proposed method can be applied to other tasks with ranking information, including most rating tasks, age estimation, etc. You can also preprocess your dataset to gain **reasonable** ranking information.
+
+Next, you just need to follow the method in our paper and add the Rank Module, Adaptive Weight Module, and the corresponding ranking loss to your original code.
