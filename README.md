@@ -3,11 +3,11 @@
 
 
 ## Pipeline
-<p align="center"><img width="90%" src="img/1.png" /></p>
+![pipeline](./img/1.png)
 
 
 ## Performances
-<p align="center"><img width="90%" src="img/2.png" /></p>
+![performances](./img/2.png)
 
 
 ## Codes
