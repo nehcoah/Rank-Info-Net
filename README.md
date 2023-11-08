@@ -65,6 +65,9 @@ Our proposed method can be applied to other tasks with ranking information, incl
 
 When applying the code to other tasks, you just need to follow the method in our paper and add the Rank Module and Adaptive Weight Module to your network, and add the corresponding ranking loss during the training stage.
 
+---
+Here is an example for applying code to other tasks we have conducted.
+
 To demonstrate the transferability of our proposed method. We conducted tests on age estimation tasks. We keep almost all of the code and only made modifications to the `dataset.py` and the parameter `num_classes`. The results are shown in the following table and MAE is calculated for various methods.
 
 |           Method            | CACD*  | MegaAge-Asian |
